@@ -467,9 +467,9 @@
         
         function downloadAddresses(format) {
             if (format === 'csv') {
-                let csv = '\ufeffAddress,Quadrant,Profit_Factor,Average_Leverage,Total_PnL,Win_Rate,Liq_Loss_Ratio,Total_Account_Value\n';
+                let csv = '\ufeffAddress,Quadrant,Profit_Factor,Average_Leverage,Total_PnL,Win_Rate,Liq_Loss_Ratio,Total_Account_Value,Avg_Duration_Min,Orders_30d,Orders_Per_Day,Duration_Ratio,Liq_Loss_Ratio_Detail,Top_Coins_Vol_Ratio,Liquidations_60d,Avg_PV\n';
                 addressesData.forEach(addr => {
-                    csv += `${addr.Address},${addr.Quadrant},${addr.Profit_Factor},${addr.Average_Leverage},${addr.Total_PnL},"${addr.Win_Rate}",${addr.Liq_Loss_Ratio},${addr.Total_Account_Value}\n`;
+                    csv += `${addr.Address},${addr.Quadrant},${addr.Profit_Factor},${addr.Average_Leverage},${addr.Total_PnL},"${addr.Win_Rate}",${addr.Liq_Loss_Ratio},${addr.Total_Account_Value},${addr.Avg_Duration_Min},${addr.Orders_30d},${addr.Orders_Per_Day},${addr.Duration_Ratio},${addr.Liq_Loss_Ratio_Detail},${addr.Top_Coins_Vol_Ratio},${addr.Liquidations_60d},${addr.Avg_PV}\n`;
                 });
                 
                 const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
