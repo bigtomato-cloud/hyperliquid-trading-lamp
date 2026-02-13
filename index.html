@@ -16,8 +16,9 @@
             font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
             color: #e0e0e0;
-            padding: 20px;
+            padding: 0;
             min-height: 100vh;
+            overflow-x: hidden;
         }
         
         .container {
@@ -27,19 +28,24 @@
         
         .header {
             text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
+            margin-bottom: 20px;
+            padding: 16px 12px;
             border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         
         .header h1 {
-            font-size: 28px;
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 0;
             background: linear-gradient(135deg, #00d4ff, #0099ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.3;
         }
         
         .header p {
@@ -48,35 +54,37 @@
         }
         
         .main-content {
-            display: grid;
-            grid-template-columns: 1fr 340px;
-            gap: 20px;
-            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 16px 12px;
+            margin-bottom: 0;
         }
         
         .chart-container {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 8px;
+            padding: 12px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            width: 100%;
         }
         
         #plotly-chart {
             width: 100%;
-            height: 600px;
+            height: 350px;
         }
         
         .quadrant-panel {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 8px;
+            padding: 12px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            max-height: 600px;
-            overflow-y: auto;
+            width: 100%;
+            max-height: none;
         }
         
         .quadrant-panel::-webkit-scrollbar {
@@ -98,19 +106,19 @@
         }
         
         .quadrant-title {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             color: #888;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .quadrant-item {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
@@ -121,28 +129,28 @@
         }
         
         .quadrant-name {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
         
         .quadrant-color {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             flex-shrink: 0;
         }
         
         .quadrant-count {
-            font-size: 10px;
+            font-size: 9px;
             color: #888;
-            margin-bottom: 8px;
-            padding: 4px 8px;
+            margin-bottom: 4px;
+            padding: 3px 6px;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
+            border-radius: 3px;
             display: inline-block;
         }
         
@@ -152,12 +160,12 @@
         }
         
         .quadrant-allocation {
-            font-size: 11px;
+            font-size: 9px;
             color: #888;
-            margin-bottom: 8px;
-            padding: 6px 10px;
+            margin-bottom: 4px;
+            padding: 3px 6px;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
+            border-radius: 3px;
             display: inline-block;
         }
         
@@ -167,10 +175,11 @@
         }
         
         .quadrant-persona {
-            font-size: 12px;
-            line-height: 1.6;
+            font-size: 10px;
+            line-height: 1.4;
             color: #b0b0b0;
             font-style: italic;
+            margin-top: 4px;
         }
         
         .q1-color { background: #00CC96; }
@@ -181,63 +190,127 @@
         .legend-info {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 0 12px 16px 12px;
             backdrop-filter: blur(10px);
         }
         
         .legend-info h3 {
-            font-size: 14px;
+            font-size: 11px;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             color: #00d4ff;
         }
         
         .legend-info p {
-            font-size: 12px;
-            line-height: 1.8;
+            font-size: 9px;
+            line-height: 1.4;
             color: #888;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
         
         .legend-info strong {
             color: #e0e0e0;
         }
         
-        @media (max-width: 1200px) {
-            .main-content {
-                grid-template-columns: 1fr;
+        @media (min-width: 1025px) {
+            body {
+                padding: 20px;
             }
             
-            .quadrant-panel {
-                max-height: none;
+            .container {
+                max-width: 1600px;
+                margin: 0 auto;
             }
             
-            #plotly-chart {
-                height: 500px;
+            .header {
+                margin-bottom: 30px;
+                padding-bottom: 20px;
             }
-        }
-        
-        @media (max-width: 768px) {
+            
             .header h1 {
-                font-size: 20px;
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+            
+            .main-content {
+                display: grid;
+                grid-template-columns: 1fr 340px;
+                gap: 20px;
+                padding: 0;
+                margin-bottom: 30px;
+            }
+            
+            .chart-container {
+                padding: 20px;
             }
             
             #plotly-chart {
-                height: 400px;
+                height: 600px;
             }
             
             .quadrant-panel {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
+                padding: 20px;
+                max-height: 600px;
+                overflow-y: auto;
+            }
+            
+            .quadrant-title {
+                font-size: 12px;
+                letter-spacing: 1px;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
             }
             
             .quadrant-item {
-                margin-bottom: 0;
-                padding-bottom: 0;
-                border-bottom: none;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+            }
+            
+            .quadrant-name {
+                font-size: 13px;
+                margin-bottom: 8px;
+                gap: 8px;
+            }
+            
+            .quadrant-color {
+                width: 12px;
+                height: 12px;
+            }
+            
+            .quadrant-count {
+                font-size: 10px;
+                margin-bottom: 6px;
+                padding: 4px 8px;
+            }
+            
+            .quadrant-allocation {
+                font-size: 11px;
+                margin-bottom: 6px;
+                padding: 4px 8px;
+            }
+            
+            .quadrant-persona {
+                font-size: 11px;
+                line-height: 1.5;
+                margin-top: 6px;
+            }
+            
+            .legend-info {
+                padding: 20px;
+                margin: 0 0 0 0;
+            }
+            
+            .legend-info h3 {
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+            
+            .legend-info p {
+                font-size: 12px;
+                line-height: 1.6;
+                margin-bottom: 8px;
             }
         }
     </style>
